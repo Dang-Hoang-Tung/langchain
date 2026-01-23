@@ -9,11 +9,13 @@ description = "LangChain learning and experimentation project"
 requires-python = ">=3.10"
 dependencies = [
     "python-dotenv",
+    "ipython",
     "langchain>=0.3.0",
     "langchain-core>=0.3.0",
     "langchain-classic>=0.1.0",
     "langchain-huggingface>=0.0.50",
     "langchain-openai>=0.1.0",
+    "langgraph",
     "transformers>=4.30.0",
     "pydantic>=2.0.0",
     "grandalf>=0.8",

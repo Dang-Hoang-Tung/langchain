@@ -5,7 +5,7 @@ load_dotenv()
 
 llm = instantiate_llm()
 
-if False:
+if True:
     ### ----- Using basic output parsers ----- ###
     from langchain_core.output_parsers import StrOutputParser
     from langchain_classic.output_parsers.boolean import BooleanOutputParser
@@ -53,7 +53,7 @@ if True:
     print(output)
 
 
-if False:
+if True:
     ### ----- Using Pydantic structured output (depends on model support) ----- ###
     from pydantic import BaseModel, Field
     from typing_extensions import Annotated

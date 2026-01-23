@@ -1,4 +1,3 @@
-import os
 from typing import List
 from typing_extensions import TypedDict, Annotated
 from dotenv import load_dotenv
@@ -6,15 +5,11 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel, RunnableLambda
+from setup.llm_openai import instantiate_llm
 
 load_dotenv()
 
-llm = ChatOpenAI(
-    model="gpt-4o-mini",
-    temperature=0.0,
-    api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL"),
-)
+llm = instantiate_llm()
 
 
 idea_prompt = PromptTemplate(

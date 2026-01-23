@@ -3,3 +3,4 @@
 **/drive-download**
 **/build
 **/langchain_project.egg-info
+**/__pycache__

@@ -1,22 +1,13 @@
 from dotenv import load_dotenv
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from setup.llm_hf import instantiate_llm
 
 load_dotenv()
 
 
-model = HuggingFaceEndpoint(
-    repo_id="openai/gpt-oss-20b",
-    task="text-generation",
-    max_new_tokens=512,
-    do_sample=False,
-    # repetition_penalty=1.03,
-    provider="auto",  # let Hugging Face choose the best provider for you
-)
-
-llm = ChatHuggingFace(llm=model)
+llm = instantiate_llm()
 
 
-if False:
+if True:
     ### ----- Basic usage ----- ###
 
     from langchain_core.prompts import PromptTemplate
@@ -36,7 +27,7 @@ if False:
     print(output)
 
 
-if False:
+if True:
     ### ----- Runnables ----- ###
     from langchain_core.prompts import PromptTemplate
     from langchain_core.output_parsers import StrOutputParser
@@ -105,7 +96,7 @@ if True:
     chain.get_graph().print_ascii()
 
 
-if False:
+if True:
     ### ----- Advanced runnable ----- ###
     from langchain_core.runnables import RunnableLambda, RunnableParallel
 
