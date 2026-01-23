@@ -5,3 +5,4 @@ langchain_classic
 langchain_huggingface
 transformers
 pydantic
+grandalf
