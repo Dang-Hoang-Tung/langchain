@@ -22,7 +22,6 @@ Create a `.env` file with:
 
 ```
 HUGGINGFACEHUB_API_TOKEN=your_token
-HF_TOKEN=your_token
 OPENAI_API_KEY=your_key
 OPENAI_BASE_URL=your_url (optional)
 ```
