@@ -2,18 +2,27 @@
 
 This repository is a playground for practicing LangChain.
 
-# Set up
+## Installation
 
-This project was initiated with Python 3.12.
+Install the package:
 
-1. Create virtual env:
-```sh
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+```bash
+pip install -e .
 ```
 
-2. Create '.env' file:
-- Copy '.env.example' to '.env'
-- Fill in the env vars
-- For HuggingFace API key, go to HuggingFace and login
+Or install with development dependencies:
+
+```bash
+pip install -e ".[dev]"
+```
+
+## Environment Variables
+
+Create a `.env` file with:
+
+```
+HUGGINGFACEHUB_API_TOKEN=your_token
+HF_TOKEN=your_token
+OPENAI_API_KEY=your_key
+OPENAI_BASE_URL=your_url (optional)
+```

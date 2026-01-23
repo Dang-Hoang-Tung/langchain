@@ -1,18 +1,9 @@
 from dotenv import load_dotenv
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from setup.llm_openai import instantiate_llm
 
 load_dotenv()
 
-model = HuggingFaceEndpoint(
-    repo_id="openai/gpt-oss-20b",
-    task="text-generation",
-    max_new_tokens=512,
-    do_sample=False,
-    # repetition_penalty=1.03,
-    provider="auto",  # let Hugging Face choose the best provider for you
-)
-
-llm = ChatHuggingFace(llm=model)
+llm = instantiate_llm()
 
 if False:
     ### ----- Using basic output parsers ----- ###
@@ -81,7 +72,7 @@ if False:
     print(output)
 
 
-if False:
+if True:
     ### ----- Dealing with Errors in Structured Output Parsing ----- ###
 
     from typing_extensions import Annotated, TypedDict
@@ -104,7 +95,7 @@ if False:
     print(response)
 
     parser = PydanticOutputParser(pydantic_object=Performer)
-    parser.parse(response.json())
+    parser.parse(response.model_dump_json())
 
     misformatted_result = "{'name': 'Scarlett Johansson', 'film_names': ['The Avengers']}"
 
