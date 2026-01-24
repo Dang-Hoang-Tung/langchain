@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from setup.llm_openai import instantiate_llm
+from utils.llm_openai import instantiate_llm
 
 load_dotenv()
 

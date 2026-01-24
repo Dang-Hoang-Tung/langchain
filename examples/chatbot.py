@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 
-from setup.llm_openai import instantiate_llm
+from utils.llm_openai import instantiate_llm
 
 load_dotenv()
 

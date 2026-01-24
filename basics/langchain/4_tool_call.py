@@ -6,7 +6,7 @@ from langchain_core.messages import (
 from langchain.tools import tool
 from langchain_core.output_parsers.openai_tools import parse_tool_calls
 from dotenv import load_dotenv
-from setup.llm_hf import instantiate_llm
+from utils.llm_hf import instantiate_llm
 
 load_dotenv()
 

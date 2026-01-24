@@ -4,7 +4,8 @@ from langgraph.graph import StateGraph, START, END
 from langchain_core.messages import HumanMessage, SystemMessage
 from IPython.display import Image, display
 from dotenv import load_dotenv
-from setup.llm_hf import instantiate_llm
+from utils.llm_hf import instantiate_llm
+from utils.display_image import open_png_bytes
 
 load_dotenv()
 
@@ -53,11 +54,8 @@ workflow.add_edge("node_b", END)
 graph = workflow.compile()
 
 
-display(
-    Image(
-        graph.get_graph().draw_mermaid_png()
-    )
-)
+open_png_bytes(graph.get_graph().draw_mermaid_png())
+
 
 graph.invoke(
     input = {
@@ -94,11 +92,7 @@ workflow.add_edge("model", END)
 graph = workflow.compile()
 
 
-display(
-    Image(
-        graph.get_graph().draw_mermaid_png()
-    )
-)
+open_png_bytes(graph.get_graph().draw_mermaid_png())
 
 
 result = graph.invoke(

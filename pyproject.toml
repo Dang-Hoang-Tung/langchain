@@ -28,4 +28,4 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["basics*", "setup*"]
+include = ["basics*", "utils*"]
