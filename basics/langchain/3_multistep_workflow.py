@@ -92,7 +92,7 @@ def main():
         print("2) Run pipeline multiple times (industries list)")
         print("q) Quit")
 
-        choice = ask("Choose an option", default="1").lower()
+        choice = ask("Choose an option").lower()
 
         if choice == "q":
             break
