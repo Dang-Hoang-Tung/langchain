@@ -1,26 +1,11 @@
 from dotenv import load_dotenv
 from utils.llm_openai import instantiate_llm
+from utils.ask_cli import ask, ask_int
 
 load_dotenv()
 llm = instantiate_llm()
 
-
-def ask(prompt: str, default: str | None = None) -> str:
-    suffix = f" [default: {default}]" if default is not None else ""
-    value = input(f"---\n{prompt}{suffix}: ").strip()
-    return value if value else (default or "")
-
-
-def ask_int(prompt: str, default: int = 5) -> int:
-    while True:
-        s = ask(prompt, str(default))
-        try:
-            return int(s)
-        except ValueError:
-            print("Please enter a valid integer.")
-
-
-def run_basic_parsers(llm):
+def demo_basic_parsers(llm):
     from langchain_core.output_parsers import StrOutputParser
     from langchain_classic.output_parsers.boolean import BooleanOutputParser
     from langchain_classic.output_parsers.datetime import DatetimeOutputParser
@@ -47,7 +32,7 @@ def run_basic_parsers(llm):
     print(output)
 
 
-def run_typeddict_structured(llm):
+def demo_typeddict_structured(llm):
     from typing_extensions import Annotated, TypedDict
 
     class UserInfo(TypedDict):
@@ -66,7 +51,7 @@ def run_typeddict_structured(llm):
     print(output)
 
 
-def run_pydantic_structured(llm):
+def demo_pydantic_structured(llm):
     from pydantic import BaseModel, Field
     from typing_extensions import Annotated
 
@@ -86,7 +71,7 @@ def run_pydantic_structured(llm):
     print(output)
 
 
-def run_error_handling(llm):
+def demo_error_handling(llm):
     from typing import List
     from typing_extensions import Annotated
     from pydantic import BaseModel, Field
@@ -131,10 +116,10 @@ def run_error_handling(llm):
 
 def main():
     actions = {
-        "1": ("Basic output parsers", run_basic_parsers),
-        "2": ("TypedDict structured output", run_typeddict_structured),
-        "3": ("Pydantic structured output", run_pydantic_structured),
-        "4": ("Error handling / OutputFixingParser", run_error_handling),
+        "1": ("Basic output parsers", demo_basic_parsers),
+        "2": ("TypedDict structured output", demo_typeddict_structured),
+        "3": ("Pydantic structured output", demo_pydantic_structured),
+        "4": ("Error handling / OutputFixingParser", demo_error_handling),
     }
 
     while True:
