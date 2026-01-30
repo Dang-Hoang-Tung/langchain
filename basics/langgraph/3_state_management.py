@@ -42,7 +42,6 @@ def route_customer(state: CustomerServiceState) -> CustomerServiceState:
         department = "sales"
         ai_message = AIMessage(content="I'd be happy to help with your purchase.")
 
-    # ✅ Prevent adding None into messages
     msgs = [ai_message] if ai_message is not None else []
 
     return {
