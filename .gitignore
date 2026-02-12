@@ -4,3 +4,6 @@
 **/build
 **/langchain_project.egg-info
 **/__pycache__
+**/mlflow-runs
+**/.mypy_cache
+**/.vscode
